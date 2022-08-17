@@ -1,0 +1,36 @@
+.navbar {
+  width: 90vw;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.navbarLeft {
+  display: flex;
+  gap: 1.5rem;
+}
+.dashboardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.dashboarInputLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.dashboardBtn {
+  border: none;
+  padding: 10px;
+  color: red;
+  margin-top: 30px;
+}
+.dashboarInput {
+  padding: 5px;
+}
