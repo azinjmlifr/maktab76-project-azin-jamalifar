@@ -10,7 +10,7 @@ export const Header = () => {
             to="/basket"
             className={({ isActive }) => (isActive ? "link active" : "link")}
           >
-            Basket
+            سبدخرید
           </NavLink>
         </div>
         <div>
@@ -18,16 +18,20 @@ export const Header = () => {
             to="/dashboard"
             className={({ isActive }) => (isActive ? "link active" : "link")}
           >
-            Admin
+            مدیریت
           </NavLink>
         </div>
       </div>
       <div>
+        <img
+          src="https://png.pngtree.com/png-vector/20190115/ourlarge/pngtree-vector-shop-icon-png-image_319729.jpg"
+          style={{ width: "20px" }}
+        />
         <NavLink
           to="/"
           className={({ isActive }) => (isActive ? "link active" : "link")}
         >
-          Home
+          فروشگاه فلان
         </NavLink>
       </div>
     </nav>

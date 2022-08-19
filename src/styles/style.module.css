@@ -44,3 +44,11 @@
 .container {
   height: auto;
 }
+.table {
+  direction: rtl;
+}
+.headerOfOrdersTable {
+  display: flex;
+  direction: rtl;
+  justify-content: space-between;
+}

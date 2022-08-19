@@ -13,21 +13,21 @@ const Dashboard = () => {
         <div>
           <h3>پنل ورود مدیریت فروشگاه</h3>
           <div className={styles.dashboarInputLabel}>
-            <label>Username</label>
+            <label>نام کاربری</label>
             <input type="text" className={styles.dashboarInput} />
           </div>
           <div className={styles.dashboarInputLabel}>
-            <label>Password</label>
+            <label>رمزعبور</label>
             <input type="password" className={styles.dashboarInput} />
           </div>
           <div>
             <Link to="/admin">
-              <button className={styles.dashboardBtn}>Register</button>
+              <button className={styles.dashboardBtn}>ورود</button>
             </Link>
           </div>
           <div>
             <Link to="/">
-              <button className={styles.dashboardBtn}>Back to home</button>
+              <button className={styles.dashboardBtn}>صفحه اصلی</button>
             </Link>
           </div>
         </div>

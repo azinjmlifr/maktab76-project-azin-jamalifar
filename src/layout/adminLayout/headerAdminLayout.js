@@ -5,7 +5,7 @@ export const Header = () => {
   return (
     <nav className={styles.navbar}>
       <div>
-        <p>modiriat froshgah</p>
+        <p>مدیریت فروشگاه</p>
       </div>
       <div className={styles.navbarLeft}>
         <div>
@@ -13,7 +13,7 @@ export const Header = () => {
             to="/admin/orders"
             className={({ isActive }) => (isActive ? "link active" : "link")}
           >
-            orders
+            سفارش ها
           </NavLink>
         </div>
         <div>
@@ -21,7 +21,7 @@ export const Header = () => {
             to="/admin/priceAndstock"
             className={({ isActive }) => (isActive ? "link active" : "link")}
           >
-            priceAndstock
+            موجودی و قیمت ها
           </NavLink>
         </div>
         <div>
@@ -29,7 +29,7 @@ export const Header = () => {
             to="/admin/productManagement"
             className={({ isActive }) => (isActive ? "link active" : "link")}
           >
-            productManagement
+            کالاها
           </NavLink>
         </div>
       </div>
@@ -38,7 +38,7 @@ export const Header = () => {
           to="/"
           className={({ isActive }) => (isActive ? "link active" : "link")}
         >
-          Home
+          فروشگاه فلان
         </NavLink>
       </div>
     </nav>

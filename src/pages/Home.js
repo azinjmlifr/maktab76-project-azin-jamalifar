@@ -13,27 +13,37 @@ const Home = () => {
       setProducts(data);
     };
     getProduct();
-    console.log("first");
   }, []);
   console.log(products);
   return (
-    <div className={styles.container}>
-      <Table striped bordered hover variant="dark">
+    <div className={styles.container} style={{ direction: "rtl" }}>
+      <Table striped>
         <thead>
           <tr>
-            <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
+            <th>نام کالا</th>
+            <th>قیمت</th>
+            <th>موجودی</th>
+            <th>دسته بندی</th>
+            <th>زیرمجموعه</th>
           </tr>
         </thead>
         <tbody>
           {products.map((product, index) => {
-            const { name, id, category } = product;
+            const {
+              name,
+              id,
+              category,
+              categoryName,
+              quantity,
+              subcategoryName,
+            } = product;
             return (
               <tr key={id}>
                 <td>{name}</td>
+                <td>{quantity}</td>
                 <td>{category}</td>
+                <td>{categoryName}</td>
+                <td>{subcategoryName}</td>
               </tr>
             );
           })}
