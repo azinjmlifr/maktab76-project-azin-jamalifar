@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ProductManagmentComponent } from "../../../components/productManagment";
+import axios from "axios";
 
 const ProductManagement = () => {
   const [products, setProducts] = useState([]);
@@ -10,10 +11,11 @@ const ProductManagement = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       setLoading(true);
-      const res = await fetch(`http://localhost:8000/products?_page=1`);
-      const data = await res.json();
-      setProducts(data);
-      setLoading(false);
+      axios.get(`http://localhost:8000/products`).then((res) => {
+        const data = res.data;
+        setProducts(data);
+        setLoading(false);
+      });
     };
     fetchProduct();
   }, []);

@@ -1,6 +1,4 @@
 // import React from "react";
-import Table from "react-bootstrap/Table";
-import styles from "../../styles/style.module.css";
 
 // export const OrderComponent = ({ orders, loading }) => {
 //   if (loading) {
@@ -46,8 +44,38 @@ import styles from "../../styles/style.module.css";
 //     </>
 //   );
 // };
+
+// <Table striped className={styles.table}>
+//         <thead>
+//           <tr>
+//             <th>نام کاربر</th>
+//             <th>مجموع مبلغ</th>
+//             <th>زمان ثبت سفارش</th>
+//             <th></th>
+//           </tr>
+//         </thead>
+//         <tbody>
+//           {currentItems.map((order, index) => {
+//             const { username, id, lastname, prices, createdAt } = order;
+//             return (
+//               <tr key={id}>
+//                 <td>{username + " " + lastname}</td>
+//                 <td>{prices}</td>
+//                 <td>{createdAt}</td>
+//                 <td>
+//                   <a href="#">بررسی سفارش</a>
+//                 </td>
+//               </tr>
+//             );
+//           })}
+//         </tbody>
+//       </Table>
+
+import Table from "react-bootstrap/Table";
+import styles from "../../styles/style.module.css";
 import React, { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
+import "../../App.css";
 
 export const OrderComponent = (props) => {
   const { data } = props;
@@ -66,7 +94,6 @@ export const OrderComponent = (props) => {
     const newOffset = (event.selected * itemsPerPage) % data.length;
     setItemOffset(newOffset);
   };
-  console.log(data);
 
   return (
     <>
@@ -80,7 +107,7 @@ export const OrderComponent = (props) => {
           </tr>
         </thead>
         <tbody>
-          {currentItems.map((order, index) => {
+          {data.map((order, index) => {
             const { username, id, lastname, prices, createdAt } = order;
             return (
               <tr key={id}>

@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { InventoryComponent } from "../../../components/inventory";
+import axios from "axios";
 
 const ProductManagement = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const limit = 7;
+
   useEffect(() => {
     const getProduct = async () => {
       setLoading(true);
-      const res = await fetch(`http://localhost:8000/products?_page=1`);
-      const data = await res.json();
-      setProducts(data);
-      setLoading(false);
+      axios.get(`http://localhost:8000/products`).then((res) => {
+        const data = res.data;
+        setProducts(data);
+        setLoading(false);
+      });
     };
     getProduct();
   }, []);
