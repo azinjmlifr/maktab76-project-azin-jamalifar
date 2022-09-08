@@ -2,6 +2,8 @@
   width: 90vw;
   max-width: var(--max-width);
   margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
   gap: 1rem;
@@ -9,6 +11,15 @@
 .navbarLeft {
   display: flex;
   gap: 1.5rem;
+}
+.navbarText {
+  font-size: 18px;
+  font-weight: 250;
+  text-decoration: none;
+}
+.navbarAdminForSides {
+  font-size: 20px;
+  font-weight: 300;
 }
 .dashboardContainer {
   display: flex;
@@ -197,4 +208,38 @@
 .primaryBtn:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px -10px rgba(24, 90, 219, 0.6);
+}
+
+/* home */
+.homeContainer {
+  direction: rtl;
+  /* display: grid;
+  grid-auto-columns: 100vw;
+  column-gap: 90px;
+  grid-auto-flow: repeat(3, 1fr);
+  grid-auto-rows: 300px;
+  row-gap: 50px; */
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 5px;
+  grid-row-gap: 0px;
+}
+
+.cardAndCategory {
+  display: flex;
+  flex-direction: row;
+}
+.categoryDivHome {
+  width: 20%;
+}
+.categoryName {
+  text-decoration: none;
+  font-size: x-large;
+}
+.cardsDivHome {
+  display: flex;
+
+  align-content: space-between;
 }

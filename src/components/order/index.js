@@ -107,7 +107,7 @@ export const OrderComponent = (props) => {
           </tr>
         </thead>
         <tbody>
-          {data.map((order, index) => {
+          {data.map((order) => {
             const { username, id, lastname, prices, createdAt } = order;
             return (
               <tr key={id}>

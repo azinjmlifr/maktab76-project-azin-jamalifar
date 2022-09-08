@@ -10,11 +10,14 @@ const ProductManagement = () => {
   useEffect(() => {
     const getProduct = async () => {
       setLoading(true);
-      axios.get(`http://localhost:8000/products`).then((res) => {
-        const data = res.data;
-        setProducts(data);
-        setLoading(false);
-      });
+      axios
+        .get(`http://localhost:8000/products`)
+        .then((res) => {
+          const data = res.data;
+          setProducts(data);
+          setLoading(false);
+        })
+        .catch((err) => console.log("error:" + err));
     };
     getProduct();
   }, []);
