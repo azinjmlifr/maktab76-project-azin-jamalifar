@@ -70,7 +70,7 @@ function Home() {
                 <Col col={8}>
                   <div
                     className={styles.cardsDivHome}
-                    style={{ marginBottom: "30px" }}
+                    style={{ marginBottom: "31px" }}
                   >
                     {Cards.map((el) => {
                       if (cate.id == el.category && cardCount <= 2) {
