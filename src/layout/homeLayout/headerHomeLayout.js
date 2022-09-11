@@ -4,26 +4,6 @@ import styles from "../../styles/style.module.css";
 export const Header = () => {
   return (
     <nav className={styles.navbar}>
-      <div className={styles.navbarLeft}>
-        <div className={styles.navbarText}>
-          <NavLink
-            to="/basket"
-            className={({ isActive }) => (isActive ? "link active" : "link")}
-            style={{ textDecoration: "none" }}
-          >
-            سبدخرید
-          </NavLink>
-        </div>
-        <div className={styles.navbarText}>
-          <NavLink
-            to="/dashboard"
-            className={({ isActive }) => (isActive ? "link active" : "link")}
-            style={{ textDecoration: "none" }}
-          >
-            مدیریت
-          </NavLink>
-        </div>
-      </div>
       <div>
         {/* <img
           src="https://png.pngtree.com/png-vector/20190115/ourlarge/pngtree-vector-shop-icon-png-image_319729.jpg"
@@ -37,6 +17,26 @@ export const Header = () => {
         >
           سوپر مارکت
         </NavLink>
+      </div>
+      <div className={styles.navbarLeft}>
+        <div className={styles.navbarText}>
+          <NavLink
+            to="/dashboard"
+            className={({ isActive }) => (isActive ? "link active" : "link")}
+            style={{ textDecoration: "none" }}
+          >
+            مدیریت
+          </NavLink>
+        </div>
+        <div className={styles.navbarText}>
+          <NavLink
+            to="/basket"
+            className={({ isActive }) => (isActive ? "link active" : "link")}
+            style={{ textDecoration: "none" }}
+          >
+            سبدخرید
+          </NavLink>
+        </div>
       </div>
     </nav>
   );

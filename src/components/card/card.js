@@ -2,50 +2,44 @@ import { useNavigate } from "react-router-dom";
 import "../../styles/card.css";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import styles from "../../styles/style.module.css";
 
-function CardItem({ name, image, price, off, id, category, description }) {
+function CardItem({
+  name,
+  price,
+  id,
+  category,
+  description,
+  categoryName,
+  image,
+}) {
   const navigate = useNavigate();
   const persianNumber = (x) => {
     return x.toLocaleString("fa-IR");
   };
+  console.log("category", category);
+  console.log("name", name);
+  console.log("description", description);
+  console.log("id", id);
+  console.log("price", price);
+  console.log("image", image);
+  const URL = "http://localhost:8000/";
   return (
-    // <div
-    //   style={{ backgroundColor: "red" }}
-    //   onClick={() => navigate(`/${category}/${id}`)}
-    //   // className="bg-white b-shadow ml-6 relative text-[#013662] rounded-xl h-[380px]  mt-5"
-    // >
-    //   <img
-    //     src={`http://localhost:8000/products/${image}`}
-    //     // className="mt-2 h-[50%] mx-5 w-[80%] "
-    //   />
-    //   <div>
-    //     <p> {name} </p>
-
-    //     {off !== "0" ? (
-    //       <>
-    //         <div>{persianNumber(+price)}</div>
-    //         <p>{persianNumber((price * off) / 100)}</p>
-    //         <span>تومان</span>
-    //       </>
-    //     ) : (
-    //       <p>{persianNumber(+price)} تومان</p>
-    //     )}
-    //     <button> خرید </button>
-    //     <p> بیشتر </p>
-    //   </div>
-    // </div>
     <Card
       style={{
         width: "20rem",
         margin: "10px",
       }}
-      onClick={() => navigate(`/${category}/${id}`)}
+      onClick={() => navigate(`/${categoryName}/${id}`)}
+      className={styles.cardProductHome}
     >
-      <Card.Img variant="top" src="holder.js/100px180" />
+      <Card.Img variant="top" src={`${URL}/files/${image}`} />
+      <img src={`${URL}/files/${image}`} alt="pc" />
       <Card.Body>
         <Card.Title>{name}</Card.Title>
         <Card.Title>{category}</Card.Title>
         <Card.Text>{description}</Card.Text>
+        <Card.Text>{<img src={`${URL}/files/${image}`} alt="pic" />}</Card.Text>
         <Card.Text>{persianNumber(+price)}</Card.Text>
         <Button variant="primary">خرید</Button>
       </Card.Body>

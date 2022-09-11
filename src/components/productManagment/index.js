@@ -4,6 +4,7 @@ import axios from "axios";
 import Modal from "../productManagment/EditModal";
 import React, { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
+import Button from "react-bootstrap/Button";
 
 export const ProductManagmentComponent = (props) => {
   const { data } = props;
@@ -34,9 +35,11 @@ export const ProductManagmentComponent = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <button>افزودن</button>
+      <div className={styles.modiritkalahaP}>
         <p>مدیریت کالاها</p>
+      </div>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <Button variant="primary">افزودن کالای جدید</Button>
       </div>
       <Table striped className={styles.table}>
         <thead>
@@ -59,7 +62,7 @@ export const ProductManagmentComponent = (props) => {
                     className={styles.primaryBtn}
                     onClick={() => setIsOpen(true)}
                   >
-                    Open Modal
+                    ویرایش
                   </button>
                   {isOpen && <Modal setIsOpen={setIsOpen} />}
 
@@ -87,12 +90,13 @@ export const ProductManagmentComponent = (props) => {
         </tbody>
       </Table>
       <ReactPaginate
+        style={{ direction: "rtl" }}
         breakLabel="..."
-        nextLabel="next >"
+        nextLabel="بعدی >"
         onPageChange={handlePageClick}
         pageRangeDisplayed={5}
         pageCount={pageCount}
-        previousLabel="< previous"
+        previousLabel="< قبلی"
         renderOnZe
         roPageCount={null}
         containerClassName="pagination"

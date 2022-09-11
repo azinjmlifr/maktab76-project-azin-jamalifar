@@ -125,11 +125,11 @@ export const OrderComponent = (props) => {
 
       <ReactPaginate
         breakLabel="..."
-        nextLabel="next >"
+        nextLabel="بعدی >"
         onPageChange={handlePageClick}
         pageRangeDisplayed={5}
         pageCount={pageCount}
-        previousLabel="< previous"
+        previousLabel="< قبلی"
         renderOnZeroPageCount={null}
         containerClassName="pagination"
         pageLinkClassName="page-num"

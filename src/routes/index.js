@@ -10,6 +10,8 @@ import Basket from "../pages/Basket";
 import LoginAdmin from "../pages/LoginAdmin";
 import HomeLayout from "../layout/homeLayout";
 import AdminLayout from "../layout/adminLayout";
+import CardInfo from "../components/home/CardInfo";
+import Category from "../components/home/Category";
 // const LazyAbout = React.lazy(() => import("./pages/About"));
 function MyRoute() {
   return (
@@ -17,8 +19,8 @@ function MyRoute() {
       <Routes>
         <Route element={<HomeLayout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/categories" element={<Categories />} />
-          <Route path=":categories/:cardInfo" />
+          <Route path="/category" element={<Category />} />
+          <Route path="/:category/:id" element={<CardInfo />} />
           <Route path="basket" element={<Basket />} />
         </Route>
         <Route path="dashboard" element={<LoginAdmin />} />

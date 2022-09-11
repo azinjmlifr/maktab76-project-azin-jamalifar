@@ -6,6 +6,16 @@ body {
   font-family: "CustomIranSans";
 }
 
+@font-face {
+  font-family: "Medium"; /*Can be any text*/
+  src: local("AMitra_3Bold"),
+    url("./assets/font/fonts/AMitra_3Bold.ttf") format("woff");
+}
+
+* {
+  font-family: "Medium";
+}
+
 .Auth-form-container {
   display: flex;
   justify-content: center;

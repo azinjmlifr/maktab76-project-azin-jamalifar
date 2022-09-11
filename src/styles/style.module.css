@@ -21,6 +21,9 @@
   font-size: 20px;
   font-weight: 300;
 }
+.adminNavbar {
+  height: 30%;
+}
 .dashboardContainer {
   display: flex;
   justify-content: center;
@@ -55,12 +58,12 @@
 .container {
   height: auto;
 }
-.table {
+/* .table {
   direction: rtl;
-}
+} */
 .headerOfOrdersTable {
   display: flex;
-  direction: rtl;
+  /* direction: rtl; */
   justify-content: space-between;
 }
 
@@ -212,7 +215,7 @@
 
 /* home */
 .homeContainer {
-  direction: rtl;
+  /* direction: rtl; */
   /* display: grid;
   grid-auto-columns: 100vw;
   column-gap: 90px;
@@ -232,8 +235,21 @@
   flex-direction: row;
 }
 .categoryDivHome {
-  width: 20%;
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+  height: 35%;
+  /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
+  box-shadow: rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px,
+    rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px,
+    rgb(255, 85, 85) 0px 0px 0px 15px;
 }
+
 .categoryName {
   text-decoration: none;
   font-size: x-large;
@@ -242,4 +258,19 @@
   display: flex;
 
   align-content: space-between;
+}
+
+.cardProductHome {
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+/* log in */
+
+.adminLoginPage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translate(-50%, -50%);
 }
