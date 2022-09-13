@@ -1,10 +1,18 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate, Link } from "react-router-dom";
 import styles from "../../styles/style.module.css";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { IS_LOGGGED_IN } from "../../config/constants";
+import Button from "react-bootstrap/Button";
 
 export const Header = () => {
+  const navigate = useNavigate();
+  const handleExit = () => {
+    localStorage.setItem(IS_LOGGGED_IN, false);
+    localStorage.clear();
+    navigate("/dashboard");
+  };
   return (
     <div className={styles.adminNavbar}>
       <Navbar expand="lg">
@@ -50,6 +58,13 @@ export const Header = () => {
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
+          <Button
+            onClick={() => {
+              handleExit();
+            }}
+          >
+            خروج
+          </Button>
         </Container>
       </Navbar>
     </div>

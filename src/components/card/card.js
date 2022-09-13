@@ -17,31 +17,55 @@ function CardItem({
   const persianNumber = (x) => {
     return x.toLocaleString("fa-IR");
   };
+
   console.log("category", category);
   console.log("name", name);
   console.log("description", description);
   console.log("id", id);
   console.log("price", price);
   console.log("image", image);
+
   const URL = "http://localhost:8000/";
   return (
     <Card
       style={{
         width: "20rem",
         margin: "10px",
+        display: "felx",
+        alignItems: "center",
+        justifyContent: "center",
       }}
       onClick={() => navigate(`/${categoryName}/${id}`)}
       className={styles.cardProductHome}
     >
-      <Card.Img variant="top" src={`${URL}/files/${image}`} />
-      <img src={`${URL}/files/${image}`} alt="pc" />
-      <Card.Body>
+      <Card.Img
+        style={{ height: "200px", width: "200px" }}
+        variant="top"
+        src={`${URL}files/${image}`}
+      />
+
+      <Card.Body
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          width: "100%",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <Card.Title>{name}</Card.Title>
         <Card.Title>{category}</Card.Title>
         <Card.Text>{description}</Card.Text>
-        <Card.Text>{<img src={`${URL}/files/${image}`} alt="pic" />}</Card.Text>
-        <Card.Text>{persianNumber(+price)}</Card.Text>
-        <Button variant="primary">خرید</Button>
+
+        <Card.Text>{price}</Card.Text>
+        <Button
+          variant="outline-info"
+          style={{
+            width: "70%",
+          }}
+        >
+          خرید
+        </Button>
       </Card.Body>
     </Card>
   );

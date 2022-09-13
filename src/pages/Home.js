@@ -40,11 +40,11 @@ function Home() {
   return (
     <div style={{ display: "felx" }}>
       <div>
-        <div>
+        <div style={{ marginBottom: "100px" }}>
           <img
             src={logo}
             alt="pic"
-            style={{ width: "1500px", height: "500px" }}
+            style={{ width: "100%", height: "500px" }}
           />
         </div>
       </div>
@@ -81,8 +81,7 @@ function Home() {
                             id={el.id}
                             cate={cate.name}
                             price={el.Price}
-                            photo={el.image}
-                            off={el.off}
+                            image={el.image}
                           />
                         );
                       }
