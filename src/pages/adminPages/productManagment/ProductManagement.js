@@ -168,7 +168,7 @@ const ProductsManegment = () => {
                   </td>
 
                   <td>{item?.name}</td>
-                  <td>{`${item?.categoryName}`}</td>
+                  <td>{`${item?.category}`}</td>
                   {/* <td>{`${item?.category}/${item?.subcategory}`}</td> */}
                   <td>
                     <DeleteModal

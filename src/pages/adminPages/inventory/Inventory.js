@@ -180,7 +180,7 @@ const InStockAndPriceTable = () => {
       <Table
         style={{
           backgroundColor: "white",
-          border: "2px black solid",
+
           textAlign: "center",
           marginRight: "350px",
         }}

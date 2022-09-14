@@ -431,7 +431,7 @@ const Order = () => {
         bordered
         style={{
           backgroundColor: "white",
-          border: "2px black solid",
+
           textAlign: "center",
           marginRight: "340px",
         }}

@@ -5,12 +5,18 @@ import styles from "../../styles/style.module.css";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import { ButtonGroup } from "@mui/material";
 
 function CardInfo() {
   const { id } = useParams();
   const URL = "http://localhost:8000/";
   const [card, setCard] = useState([]);
   const regex = /(<([^>]+)>)/gi;
+  const cardFromLocalStorage = JSON.parse(
+    localStorage.getItem("basketCount") || "[]"
+  );
+  const [basketCount, setBasketCount] = useState(cardFromLocalStorage);
+  const [counter, setCounter] = useState(0);
 
   useEffect(() => {
     getCard();
@@ -21,11 +27,39 @@ function CardInfo() {
       .get(`${URL}products?id=${id}`)
       .then((res) => {
         setCard(res.data);
-        console.log(res.data);
       })
       .catch((err) => console.log("error:" + err));
   };
 
+  // useEffect(() => {
+  //   dispatch(getProduct());
+  //   dispatch(getCategory());
+  // }, [dispatch]);
+
+  useEffect(() => {
+    localStorage.setItem("basketCount", JSON.stringify(basketCount));
+  }, [basketCount]);
+
+  const handlePlusCounter = (item) => {
+    counter < item.quantity ? setCounter(counter + 1) : setCounter(counter);
+  };
+  const handleMinusCounter = () => {
+    counter > 0 ? setCounter(counter - 1) : setCounter(1);
+  };
+  const addtobasket = (item) => {
+    const countItems = basketCount.find((data) => data.id === item.id);
+    if (countItems) {
+      setBasketCount(
+        basketCount.map((data) =>
+          item.id === data.id
+            ? { ...countItems, count: countItems.quantity + counter }
+            : data
+        )
+      );
+    } else {
+      setBasketCount([...basketCount, { ...item, count: counter }]);
+    }
+  };
   return (
     <div className="my-64">
       {card.map((el) => {
@@ -50,35 +84,78 @@ function CardInfo() {
               <div style={{ width: "50%" }}>
                 <div style={{ height: "200px" }}>
                   <div className="flex flex-col justify-center items-center">
-                    <p> موجودی: </p>
-                    <p> {el.quantity} </p>
-                    <p>قیمت:</p>
-                    <p>
-                      {" "}
-                      {` ${el?.price
-                        .toString()
-                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")} تومان`}
-                    </p>
-                    <div>{el.description.replace(regex, "")} </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        gap: "10px",
+                      }}
+                    >
+                      <div>
+                        <p> موجودی: </p>
+                      </div>
+                      <div>
+                        {" "}
+                        <p> {el.quantity} </p>
+                      </div>
+                    </div>
+                    <div style={{ display: "flex", gap: "10px" }}>
+                      <p>قیمت:</p>
+                      <p>
+                        {" "}
+                        {` ${el?.price
+                          .toString()
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")} تومان`}
+                      </p>
+                    </div>
                   </div>
                 </div>
-                <Link to="/basket">
-                  <Button variant="outline-success">
-                    {" "}
-                    اضافه کردن به سبد خرید
-                  </Button>{" "}
-                </Link>
-                <div>
+                <div>{el.description.replace(regex, "")} </div>
+                {/* <Link to="/basket"> */}
+                <div
+                  style={{
+                    height: "50px",
+                    marginLeft: "20px",
+                    direction: "ltr",
+                  }}
+                  variant="contained"
+                  aria-label="outlined secondary button group"
+                >
+                  <Button
+                    style={{ backgroundColor: "#66635d" }}
+                    onClick={() => handleMinusCounter()}
+                  >
+                    -
+                  </Button>
+                  <div>{counter}</div>
+
+                  <Button
+                    style={{ backgroundColor: "#66635d" }}
+                    onClick={() => handlePlusCounter(el)}
+                  >
+                    +
+                  </Button>
+                </div>
+                <Button
+                  variant="outline-success"
+                  style={{ marginTop: "20px" }}
+                  disabled={el.quantity === 0 ? true : false}
+                  onClick={() => addtobasket(el)}
+                >
+                  {" "}
+                  اضافه کردن به سبد خرید
+                </Button>{" "}
+                {/* </Link> */}
+                <div style={{ marginTop: "20px" }}>
                   {" "}
                   <Link to="/">
-                    <Button variant="outline-success">صفحه اصلی</Button>{" "}
+                    <Button variant="outline-primary">صفحه اصلی</Button>{" "}
                   </Link>{" "}
                 </div>
               </div>
               <div style={{ width: "50%" }}>
                 <img
                   src={`http://localhost:8000/files/${el.image}`}
-                  className="b-shadow h-[300px] rounded-lg"
+                  style={{ width: "400px", height: "400px" }}
                   alt="pic"
                 />
               </div>

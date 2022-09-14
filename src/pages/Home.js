@@ -56,10 +56,10 @@ function Home() {
               <div className={styles.cardAndCategory}>
                 <Col sm={3}>
                   <div className={styles.categoryDivHome}>
-                    <Link className={styles.categoryName} to={cate.name}>
+                    <NavLink className={styles.categoryName} to={`/sidebar`}>
                       {" "}
                       {cate.name}
-                    </Link>
+                    </NavLink>
                     <img
                       src={`${URL}files/${cate.icon}`}
                       alt="pic"

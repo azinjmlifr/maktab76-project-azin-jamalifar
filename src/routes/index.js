@@ -6,12 +6,17 @@ import Categories from "../pages/Categories";
 import Orders from "../pages/adminPages/orders/Orders";
 import PriceAndStock from "../pages/adminPages/inventory/Inventory";
 import ProductManagement from "../pages/adminPages/productManagment/ProductManagement";
-import Basket from "../pages/Basket";
+
 import LoginAdmin from "../pages/LoginAdmin";
 import HomeLayout from "../layout/homeLayout";
 import AdminLayout from "../layout/adminLayout";
 import CardInfo from "../components/home/CardInfo";
 import Category from "../components/home/Category";
+import Sidebar from "../components/commodity/sidebar";
+import Basket from "../pages/basket/basket";
+import FinalBasket from "../pages/basket/finalbasket";
+import { PaymentResult } from "../pages/basket/paymentresult";
+
 // const LazyAbout = React.lazy(() => import("./pages/About"));
 function MyRoute() {
   return (
@@ -19,10 +24,19 @@ function MyRoute() {
       <Routes>
         <Route element={<HomeLayout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/category" element={<Category />} />
+          {/* <Route path="productpage" element={<Category />}>
+            <Route path=":productId" />
+          </Route> */}
+          {/* <Route path="/category" element={<Category />} /> */}
           <Route path="/:category/:id" element={<CardInfo />} />
+          <Route path="sidebar" element={<Sidebar />}>
+            <Route path=":groupId" />
+          </Route>
           <Route path="basket" element={<Basket />} />
         </Route>
+        <Route path="basket" element={<Basket />} />
+        <Route path="finalbasket" element={<FinalBasket />} />
+        <Route path="payment" element={<PaymentResult />} />
         <Route path="dashboard" element={<LoginAdmin />} />
         <Route path="admin" element={<AdminLayout />}>
           <Route path="/admin/orders" element={<Orders />}></Route>

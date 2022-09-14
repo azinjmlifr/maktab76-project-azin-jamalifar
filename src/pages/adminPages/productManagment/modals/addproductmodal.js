@@ -128,6 +128,13 @@ export default function AddModal({
               value={quantity}
               onChange={(e) => setQuantity(e.target.value)}
             />
+            <p>توضیحات:</p>
+            <input
+              style={{ marginBottom: "10px" }}
+              type="text"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
             {/* <p>وزن:</p>
             <input
               style={{ marginBottom: "10px" }}
@@ -144,10 +151,11 @@ export default function AddModal({
               }}
               style={{ marginBottom: "10px" }}
             >
-              <option value={1}>گوشواره</option>
-              <option value={2}>گردنبند</option>
-              <option value={3}>دستبند</option>
-              <option value={4}>انگشتر</option>
+              <option>گروه ها</option>
+              <option value={1}>نانوایی</option>
+              <option value={2}>نوشیدنی</option>
+              <option value={3}>پروتین</option>
+              <option value={4}>شیرینی</option>
             </select>
 
             <div className="App" style={{ marginBottom: "10px" }}>
