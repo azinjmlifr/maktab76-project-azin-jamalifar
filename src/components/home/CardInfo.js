@@ -5,7 +5,6 @@ import styles from "../../styles/style.module.css";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import { ButtonGroup } from "@mui/material";
 
 function CardInfo() {
   const { id } = useParams();
@@ -22,6 +21,9 @@ function CardInfo() {
     getCard();
   }, []);
 
+  // function refreshPage() {
+  //   window.location.reload(true);
+  // }
   const getCard = () => {
     axios
       .get(`${URL}products?id=${id}`)
@@ -46,6 +48,9 @@ function CardInfo() {
   const handleMinusCounter = () => {
     counter > 0 ? setCounter(counter - 1) : setCounter(1);
   };
+
+  //add to basket
+
   const addtobasket = (item) => {
     const countItems = basketCount.find((data) => data.id === item.id);
     if (countItems) {
@@ -56,7 +61,7 @@ function CardInfo() {
             : data
         )
       );
-    } else {
+    } else if (countItems) {
       setBasketCount([...basketCount, { ...item, count: counter }]);
     }
   };
@@ -110,41 +115,48 @@ function CardInfo() {
                   </div>
                 </div>
                 <div>{el.description.replace(regex, "")} </div>
-                {/* <Link to="/basket"> */}
                 <div
                   style={{
                     height: "50px",
                     marginLeft: "20px",
                     direction: "ltr",
+                    display: "flex",
+                    gap: "10px",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    textAlign: "center",
                   }}
                   variant="contained"
                   aria-label="outlined secondary button group"
                 >
-                  <Button
-                    style={{ backgroundColor: "#66635d" }}
-                    onClick={() => handleMinusCounter()}
-                  >
-                    -
-                  </Button>
-                  <div>{counter}</div>
-
-                  <Button
-                    style={{ backgroundColor: "#66635d" }}
-                    onClick={() => handlePlusCounter(el)}
-                  >
-                    +
-                  </Button>
+                  <div style={{ display: "flex", height: "30px", gap: "20px" }}>
+                    <Button
+                      style={{ backgroundColor: "#66635d" }}
+                      onClick={() => handleMinusCounter()}
+                    >
+                      -
+                    </Button>
+                    <div>{counter}</div>
+                    <Button
+                      style={{ backgroundColor: "#66635d" }}
+                      onClick={() => handlePlusCounter(el)}
+                    >
+                      +
+                    </Button>
+                  </div>
+                  <div>
+                    <Button
+                      variant="outline-success"
+                      style={{ marginTop: "20px" }}
+                      disabled={el.quantity === 0 ? true : false}
+                      onClick={() => addtobasket(el)}
+                    >
+                      {" "}
+                      اضافه کردن به سبد خرید
+                    </Button>
+                  </div>
                 </div>
-                <Button
-                  variant="outline-success"
-                  style={{ marginTop: "20px" }}
-                  disabled={el.quantity === 0 ? true : false}
-                  onClick={() => addtobasket(el)}
-                >
-                  {" "}
-                  اضافه کردن به سبد خرید
-                </Button>{" "}
-                {/* </Link> */}
+
                 <div style={{ marginTop: "20px" }}>
                   {" "}
                   <Link to="/">

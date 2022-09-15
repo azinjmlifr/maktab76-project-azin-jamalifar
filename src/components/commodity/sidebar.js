@@ -76,6 +76,7 @@ const SideBar = () => {
         {category.map((item) => (
           <>
             <Link
+              id={item.id}
               style={{
                 textDecoration: "none",
                 color: "rgb(128, 128, 128)",
@@ -96,7 +97,7 @@ const SideBar = () => {
       >
         {category.map((data) =>
           data.id === Number(groupId) ? (
-            <>
+            <div id={data.id}>
               <h2
                 style={{
                   display: "flex",
@@ -117,6 +118,7 @@ const SideBar = () => {
               {items.map((elem) =>
                 elem.category === data.id ? (
                   <div
+                    id={elem.id}
                     style={{
                       display: "inline-flex",
                       flexWrap: "wrap",
@@ -170,7 +172,7 @@ const SideBar = () => {
                 breakLinkClassName={"page-link"}
                 activeClassName={"active"}
               />
-            </>
+            </div>
           ) : null
         )}
       </div>

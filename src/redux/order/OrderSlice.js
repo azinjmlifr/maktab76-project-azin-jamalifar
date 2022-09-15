@@ -51,7 +51,22 @@ export const orderSlice = createSlice({
     builder.addCase(getOrder.fulfilled, (state, action) => {
       state.order = action.payload;
     });
+    builder.addCase(addOrders.fulfilled, (state, action) => {
+      state.order = action.payload;
+      localStorage.clear();
+      state.error = "";
+    });
+    builder.addCase(addOrders.rejected, (state, action) => {
+      state.error = action.error.message;
+    });
   },
 });
 
+export const addOrders = createAsyncThunk(
+  "orders/addOrders",
+  async (clientData) => {
+    const res = await axios.post(`http://localhost:8000/orders`, clientData);
+    return res.data;
+  }
+);
 export default orderSlice.reducer;

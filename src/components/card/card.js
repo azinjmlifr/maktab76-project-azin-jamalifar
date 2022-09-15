@@ -6,17 +6,11 @@ import styles from "../../styles/style.module.css";
 
 function CardItem({ name, price, id, category, description, image }) {
   const navigate = useNavigate();
-  const persianNumber = (x) => {
-    return x.toLocaleString("fa-IR");
-  };
-
-  console.log("category", category);
-  console.log("name", name);
-  console.log("description", description);
-  console.log("id", id);
-  console.log("price", price);
-  console.log("image", image);
-  const { productId } = useParams();
+  console.log(category);
+  // const persianNumber = (x) => {
+  //   return x.toLocaleString("fa-IR");
+  // };
+  // const { productId } = useParams();
   const URL = "http://localhost:8000/";
   return (
     <Card
@@ -27,7 +21,6 @@ function CardItem({ name, price, id, category, description, image }) {
         alignItems: "center",
         justifyContent: "center",
       }}
-      // onClick={() => navigate(`/${category}/${id}`)}
       onClick={() => navigate(`/${category}/${id}`)}
       className={styles.cardProductHome}
     >
@@ -47,10 +40,7 @@ function CardItem({ name, price, id, category, description, image }) {
         }}
       >
         <Card.Title>{name}</Card.Title>
-        <Card.Title>{category}</Card.Title>
-        <Card.Text>{description}</Card.Text>
-
-        <Card.Text>{price}</Card.Text>
+        {/* <Card.Text>{price}</Card.Text> */}
         <Button
           variant="outline-info"
           style={{

@@ -2,18 +2,34 @@
   background-color: white;
 }
 
-body {
+/* body {
   font-family: "CustomIranSans";
-}
-
+} */
+/* 
 @font-face {
-  font-family: "Medium"; /*Can be any text*/
+  font-family: "Medium"; 
   src: local("AMitra_3Bold"),
     url("./assets/font/fonts/AMitra_3Bold.ttf") format("woff");
+} */
+
+@font-face {
+  font-family: "AMitra";
+  src: local("font"),
+    url("./assets/font/fonts/AMitra_5Bold.ttf") format("truetype");
+  /* font-weight: bold; */
+}
+/* * {
+  font-family: "Medium";
+} */
+
+body {
+  direction: rtl;
+  text-align: right;
+  font-family: "AMitra";
 }
 
 * {
-  font-family: "Medium";
+  font-family: "AMitra";
 }
 
 .Auth-form-container {

@@ -1,7 +1,14 @@
 import { NavLink } from "react-router-dom";
 import styles from "../../styles/style.module.css";
+import React, { useEffect, useState } from "react";
 
 export const Header = () => {
+  const [orders, setOrders] = useState([]);
+
+  // useEffect(() => {
+  //   setOrders(JSON.parse(localStorage.getItem("basketCount")).length);
+  // }, [orders]);
+
   return (
     <nav className={styles.navbar}>
       <div>
@@ -34,7 +41,7 @@ export const Header = () => {
             className={({ isActive }) => (isActive ? "link active" : "link")}
             style={{ textDecoration: "none" }}
           >
-            سبدخرید
+            سبدخرید{orders}
           </NavLink>
         </div>
       </div>

@@ -23,7 +23,7 @@ export const Header = () => {
               className={({ isActive }) => (isActive ? "link active" : "link")}
               style={{ textDecoration: "none" }}
             >
-              فروشگاه فلان
+              سوپرمارکت
             </NavLink>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
