@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Formik, Form, useFormik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
-import { InputField } from "./inputfield";
+import { InputField } from "./inputFormik";
 import { Button } from "react-bootstrap";
+import { Calendar, DatePicker } from "react-persian-datepicker";
 
 export default function FinalBasket() {
   const navigate = useNavigate();
@@ -92,6 +93,11 @@ export default function FinalBasket() {
                 onChange={formik.handleChange}
                 value={new Date(formik.values.expectAt).getTime()}
               />
+              <div>
+                {`${new Date(formik.values.expectAt).toLocaleDateString(
+                  "fa-IR"
+                )}`}
+              </div>
 
               <div
                 style={{

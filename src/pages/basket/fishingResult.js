@@ -7,7 +7,7 @@ import { TiTick } from "react-icons/ti";
 import { ImCross } from "react-icons/im";
 import { addOrders } from "../../redux/order/OrderSlice";
 import { useDispatch } from "react-redux";
-
+import failed from "../../assets/pictures/failed.jpg";
 const PaymentResult = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -64,6 +64,7 @@ const PaymentResult = () => {
               color: "#f74a4a",
             }}
           />
+          <img src={failed} alt="" />
           <div style={{ display: "block" }}>
             <h3>پرداخت ناموفق!</h3>
             <p>

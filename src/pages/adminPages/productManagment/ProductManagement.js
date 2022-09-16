@@ -1,32 +1,3 @@
-// import React, { useEffect, useState } from "react";
-// import { ProductManagmentComponent } from "../../../components/productManagment";
-// import axios from "axios";
-
-// const ProductManagement = () => {
-//   const [products, setProducts] = useState([]);
-//   const [loading, setLoading] = useState(false);
-
-//   useEffect(() => {
-//     const fetchProduct = async () => {
-//       setLoading(true);
-//       axios.get(`http://localhost:8000/products`).then((res) => {
-//         const data = res.data;
-//         setProducts(data);
-//         setLoading(false);
-//       });
-//     };
-//     fetchProduct();
-//   }, []);
-
-//   return (
-//     <>
-//       <ProductManagmentComponent data={products} loading={loading} />
-//     </>
-//   );
-// };
-
-// export default ProductManagement;
-
 import React, { useCallback, useState } from "react";
 import { useEffect } from "react";
 import Table from "react-bootstrap/Table";
@@ -60,7 +31,7 @@ const ProductsManegment = () => {
   const [price, setPrice] = useState("");
   const [weight, setWeight] = useState("");
 
-  let limit = 3;
+  let limit = 5;
 
   const fetchProducts = useCallback(
     async (currentPage) => {
@@ -143,6 +114,7 @@ const ProductsManegment = () => {
         style={{
           textAlign: "center",
           marginRight: "350px",
+          border: "2px #679FF1 solid",
         }}
         className="w-50 "
       >

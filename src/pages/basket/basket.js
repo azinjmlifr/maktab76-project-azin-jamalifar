@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Table } from "react-bootstrap";
 import { useNavigate, Link } from "react-router-dom";
-import DeleteOrderModal from "./deletmodal";
+import DeleteOrderModal from "./deleteModal";
 import Alert from "react-bootstrap/Alert";
 
 export default function Basket() {

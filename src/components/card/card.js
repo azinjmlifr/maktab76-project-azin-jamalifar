@@ -4,9 +4,8 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import styles from "../../styles/style.module.css";
 
-function CardItem({ name, price, id, category, description, image }) {
+function CardItem({ name, id, category, image }) {
   const navigate = useNavigate();
-  console.log(category);
   // const persianNumber = (x) => {
   //   return x.toLocaleString("fa-IR");
   // };
@@ -14,14 +13,7 @@ function CardItem({ name, price, id, category, description, image }) {
   const URL = "http://localhost:8000/";
   return (
     <Card
-      style={{
-        width: "20rem",
-        margin: "10px",
-        display: "felx",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-      onClick={() => navigate(`/${category}/${id}`)}
+      onClick={() => navigate(`/${name}/${id}`)}
       className={styles.cardProductHome}
     >
       <Card.Img
@@ -30,15 +22,7 @@ function CardItem({ name, price, id, category, description, image }) {
         src={`${URL}files/${image}`}
       ></Card.Img>
 
-      <Card.Body
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          width: "100%",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
+      <Card.Body className={styles.card}>
         <Card.Title>{name}</Card.Title>
         {/* <Card.Text>{price}</Card.Text> */}
         <Button

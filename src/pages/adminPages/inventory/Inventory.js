@@ -13,7 +13,7 @@ const InStockAndPriceTable = () => {
   const [newPrice, setNewPrice] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
 
-  let limit = 4;
+  let limit = 5;
 
   const fetchProducts = useCallback(
     async (currentPage) => {
@@ -58,6 +58,7 @@ const InStockAndPriceTable = () => {
     }
     setNewPrice(newPriceList);
   };
+
   //quantity
   const handleChangeQuantity = (e, id) => {
     const idx = items.findIndex((item) => item.id === id);
@@ -80,7 +81,7 @@ const InStockAndPriceTable = () => {
     setNewPrice(newQuantityList);
   };
 
-  const saveEdit = (e) => {
+  const saving = (e) => {
     e.preventDefault();
     console.log(newPrice);
     newPrice.forEach((element) => {
@@ -104,7 +105,7 @@ const InStockAndPriceTable = () => {
   return (
     <div>
       <Button
-        onClick={(e) => saveEdit(e)}
+        onClick={(e) => saving(e)}
         style={{ margin: "20px", alignItems: "start" }}
         variant="secondary"
         type="submit"
@@ -116,7 +117,7 @@ const InStockAndPriceTable = () => {
       <Table
         style={{
           backgroundColor: "white",
-
+          border: "2px #679FF1 solid",
           textAlign: "center",
           marginRight: "350px",
         }}

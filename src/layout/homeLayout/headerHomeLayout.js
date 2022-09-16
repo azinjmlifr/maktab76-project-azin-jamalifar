@@ -4,10 +4,14 @@ import React, { useEffect, useState } from "react";
 
 export const Header = () => {
   const [orders, setOrders] = useState([]);
+  const basketCount = localStorage.getItem("basketCount");
+  console.log(basketCount);
 
-  // useEffect(() => {
-  //   setOrders(JSON.parse(localStorage.getItem("basketCount")).length);
-  // }, [orders]);
+  if (basketCount) {
+    useEffect(() => {
+      setOrders(JSON.parse(localStorage.getItem("basketCount")).length);
+    }, [basketCount]);
+  }
 
   return (
     <nav className={styles.navbar}>

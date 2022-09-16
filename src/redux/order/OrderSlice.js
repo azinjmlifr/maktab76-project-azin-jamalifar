@@ -16,7 +16,7 @@ export const getOrder = createAsyncThunk(
       const resp = await axios(URL);
       return resp.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue("something went wrong");
+      return thunkAPI.rejectWithValue("Did something wrong");
     }
   }
 );
@@ -27,7 +27,7 @@ export const DeliveredOrder = createAsyncThunk(
       const resp = await axios(URL_delivered);
       return resp.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue("something went wrong");
+      return thunkAPI.rejectWithValue("Did something wrong");
     }
   }
 );
@@ -39,7 +39,7 @@ export const NotDeliveredOrder = createAsyncThunk(
       const resp = await axios(URL_notdelivered);
       return resp.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue("something went wrong");
+      return thunkAPI.rejectWithValue("Did something wrong");
     }
   }
 );

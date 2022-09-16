@@ -11,8 +11,8 @@ import AdminLayout from "../layout/adminLayout";
 import CardInfo from "../components/home/CardInfo";
 import Sidebar from "../components/commodity/sidebar";
 import Basket from "../pages/basket/basket";
-import FinalBasket from "../pages/basket/finalbasket";
-import PaymentResult from "../pages/basket/paymentresult";
+import FinalBasket from "../pages/basket/paymentForm";
+import PaymentResult from "../pages/basket/fishingResult";
 // import { Bank } from "../pages/Bank";
 
 // const LazyAbout = React.lazy(() => import("./pages/About"));
@@ -28,10 +28,10 @@ function MyRoute() {
           </Route>
           <Route path="basket" element={<Basket />} />
         </Route>
-        {/* <Route path="basket" element={<Basket />} /> */}
+
         <Route path="finalbasket" element={<FinalBasket />} />
         <Route path="payment" element={<PaymentResult />} />
-        {/* <Route path="bank" element={<Bank />} /> */}
+
         <Route path="dashboard" element={<LoginAdmin />} />
         <Route path="admin" element={<AdminLayout />}>
           <Route path="/admin/orders" element={<Orders />}></Route>

@@ -61,7 +61,7 @@ function CardInfo() {
             : data
         )
       );
-    } else if (countItems) {
+    } else {
       setBasketCount([...basketCount, { ...item, count: counter }]);
     }
   };

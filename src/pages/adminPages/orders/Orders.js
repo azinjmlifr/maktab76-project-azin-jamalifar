@@ -4,24 +4,23 @@ import Button from "react-bootstrap/Button";
 import ReactPaginate from "react-paginate";
 import { GiShoppingBag } from "react-icons/gi";
 import OrderModal from "./modal/ordermodal";
-import styles from "../../../styles/style.module.css";
 
 const URL_delivered = "http://localhost:8000/orders?delivered=true";
 const URL_notdelivered = "http://localhost:8000/orders?delivered=false";
 
-const Order = () => {
+const OrderManegment = () => {
   const [items, setItems] = useState([]);
   const [pageCount, setpageCount] = useState(0);
   const [temp, setTemp] = useState("");
   const [showOrderModal, setShowOrderModal] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
 
-  let limit = 2;
+  let limit = 5;
 
   const fetchOrders = useCallback(
     async (currentPage) => {
       const res = await fetch(
-        `${URL_delivered}?_page=${currentPage}&_limit=${limit}`
+        `http://localhost:8000/orders?_page=${currentPage}&_limit=${limit}`
       );
       const data = await res.json();
       const total = res.headers.get("x-total-count");
@@ -81,7 +80,7 @@ const Order = () => {
         bordered
         style={{
           backgroundColor: "white",
-
+          border: "2px #679FF1 solid",
           textAlign: "center",
           marginRight: "340px",
         }}
@@ -161,4 +160,4 @@ const Order = () => {
   );
 };
 
-export default Order;
+export default OrderManegment;
